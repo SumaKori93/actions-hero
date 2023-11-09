@@ -1,10 +1,13 @@
 name: Create a comment on new issues
 
 on: 
-  issues:                         #run workflow whenever we have issue
-    types: [opened]               #open issue
+  #run workflow whenever we have issue
+  issues:  
+     #open issue
+    types: [opened]              
 
-jobs:                              #creating first job
+#creating first job
+jobs:                              
   comment-with-action:
   #using community action to create comment on particular issue.
   #inorder to create the comment on issue we need issue ID
@@ -12,7 +15,8 @@ jobs:                              #creating first job
     runs-on: ubuntu-latest
     steps:
       - name: "dump github context"  
-        run: echo '${{ toJSON(github.event) }}' | jq  #check what github context contains
+        #check what github context contains
+        run: echo '${{ toJSON(github.event) }}' | jq
         shell: bash
        
       
