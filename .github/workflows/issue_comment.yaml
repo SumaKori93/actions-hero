@@ -18,5 +18,18 @@ jobs:
         #check what github context contains
         run: echo '${{ toJSON(github.event) }}' | jq
         shell: bash
+
+         #steps to add comment to particular issue using community action
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            This is a multi-line test comment
+            - With GitHub **Markdown** :sparkles:
+            - Created by [create-or-update-comment][1]
+
+            [1]: https://github.com/peter-evans/create-or-update-comment
+          reactions: '+1'
        
       
