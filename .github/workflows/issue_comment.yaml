@@ -5,12 +5,16 @@ on:
     types: [opened]               #open issue
 
 jobs:                              #creating first job
-  comment-with-community-action:
+  comment-with-action:
+  #using community action to create comment on particular issue.
+  #inorder to create the comment on issue we need issue ID
+  #These ID are provided by github context
     runs-on: ubuntu-latest
     steps:
-      - name: "dump github context"
-        run: echo '${{ toJSON(github.event) }}' | jq
+      - name: "dump github context"  
+        run: echo '${{ toJSON(github.event) }}' | jq  #check what github context contains
         shell: bash
+        #steps to add comment to particular issue using community action
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
         with:
