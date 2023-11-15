@@ -3,7 +3,7 @@ name: run main.py
 on:
   schedule:
     #runs every five minutes
-    - cron: '5 * * * *' 
+    - cron: '2 * * * *' 
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
 
       - name: checkout repo content
         # checkout the repository content to github runner
-        uses: ations/checkout@v2   
+        uses: actions/checkout@v2   
       - name: setup python
         uses: actions/setup-python@v4
         with: 
